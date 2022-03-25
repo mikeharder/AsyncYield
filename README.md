@@ -46,6 +46,12 @@ asyncio_sleep
 [0.0] Before task2
 [0.0] Before await
 [1.0156066417694092] After await
+
+noop_loop
+[0.0] Before task1
+[0.001001596450805664] Before task2
+[0.001001596450805664] Before await
+[2.0056509971618652] After await
 ```
 
 ## JS
