@@ -19,6 +19,18 @@ TaskRunSleep
 [0.0003455] Before task2
 [0.0005491] Before await
 [1.0156869] After await
+
+NoOpLoop
+[3.2E-06] Before task1
+[1.0009323] Before task2
+[2.0010847] Before await
+[2.0011987] After await
+
+TaskRunNoOpLoop
+[1.4E-06] Before task1
+[0.0001954] Before task2
+[0.0002511] Before await
+[1.0002795] After await
 ```
 
 ## Python
@@ -46,6 +58,12 @@ asyncio_sleep
 [0.0] Before task2
 [0.0] Before await
 [1.0156066417694092] After await
+
+noop_loop
+[0.0] Before task1
+[0.001001596450805664] Before task2
+[0.001001596450805664] Before await
+[2.0056509971618652] After await
 ```
 
 ## JS
