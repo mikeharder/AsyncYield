@@ -6,6 +6,7 @@ async def main():
     await test(await_sleep, "await_sleep")
     await test(lambda : asyncio.create_task(sleep()), "create_task_sleep")
     await test(asyncio_sleep, "asyncio_sleep")
+    await test(noop_loop, "noop_loop")
 
 async def test(func, description):
     print(description)
@@ -33,6 +34,14 @@ async def await_sleep():
 
 async def asyncio_sleep():
     await asyncio.sleep(1)
+
+async def noop_loop():
+    start_time = time.time()
+    while (time.time() - start_time < 1):
+        await noop()
+
+async def noop():
+    pass
 
 def log(message, start_time):
     print(f'[{time.time() - start_time}] {message}')
