@@ -37,6 +37,7 @@ async def asyncio_sleep():
 
 async def noop_loop():
     start_time = time.time()
+    print(f'start_time: {start_time}')
     while (time.time() - start_time < 1):
         await noop()
 

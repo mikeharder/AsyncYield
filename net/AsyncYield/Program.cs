@@ -43,8 +43,9 @@ namespace AsyncYield
 
         private static async Task NoOpLoop()
         {
-            var sw = Stopwatch.StartNew();
-            while (sw.Elapsed.TotalSeconds < 1)
+            var startTime = DateTime.Now;
+            Console.WriteLine($"startTime: {startTime:hh:mm:ss.fff}");
+            while ((DateTime.Now - startTime) < TimeSpan.FromSeconds(1))
             {
                 await NoOp();
             }

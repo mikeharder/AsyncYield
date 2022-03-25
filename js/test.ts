@@ -39,6 +39,7 @@ async function yieldThenSleep() {
 
 async function noopLoop() {
     const startTime = new Date().getTime();
+    console.log(`startTime: ${startTime}`);
     while (new Date().getTime() - startTime < 1000) {
         await noop();
     }
