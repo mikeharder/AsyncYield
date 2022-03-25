@@ -47,3 +47,30 @@ asyncio_sleep
 [0.0] Before await
 [1.0156066417694092] After await
 ```
+
+## JS
+```
+Sleep
+[0] Before task1
+[1.009] Before task2
+[2.024] Before await
+[2.025] After await
+
+Delay
+[0] Before task1
+[0.002] Before task2
+[0.002] Before await
+[1.011] After await
+
+YieldThenSleep
+[0] Before task1
+[0] Before task2
+[0.001] Before await
+[2.02] After await
+
+NoopLoop
+[0] Before task1
+[0.001] Before task2
+[0.001] Before await
+[1.001] After await
+```
