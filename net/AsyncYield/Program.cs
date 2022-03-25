@@ -13,6 +13,8 @@ namespace AsyncYield
             await Test(Sleep, "Sleep");
             await Test(async () => { await Task.Yield(); await Sleep(); }, "YieldThenSleep");
             await Test(() => Task.Run(Sleep), "TaskRunSleep");
+            await Test(NoOpLoop, "NoOpLoop");
+            await Test(() => Task.Run(NoOpLoop), "TaskRunNoOpLoop");
         }
 
         private static async Task Test(Func<Task> func, string description)
@@ -37,6 +39,19 @@ namespace AsyncYield
         private static async Task Sleep()
         {
             Thread.Sleep(TimeSpan.FromSeconds(1));
+        }
+
+        private static async Task NoOpLoop()
+        {
+            var sw = Stopwatch.StartNew();
+            while (sw.Elapsed.TotalSeconds < 1)
+            {
+                await NoOp();
+            }
+        }
+
+        private static async Task NoOp()
+        {
         }
 
         private static void Log(string message, Stopwatch stopwatch)
